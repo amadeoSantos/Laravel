@@ -90,7 +90,7 @@ class VotoController extends Controller
                     $votocandidato=[];
                     $votocandidato['voto_id']= $voto->id;
                     $votocandidato['candidato_id'] = $key;
-                    $votocandidato['voto']=$value;
+                    $votocandidato['votos']=$value;
                     Votocandidato::create($votocandidato);
                 }
                 DB::commit();
@@ -151,7 +151,6 @@ class VotoController extends Controller
         $candidatos=[];
         foreach($request->all() as $key=>$value){
             if (substr($key,0,10)=="candidato_")
-            print_r($key);
                 $candidatos[substr($key,10)]=$value;
         }
 
