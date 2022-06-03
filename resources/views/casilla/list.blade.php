@@ -29,7 +29,7 @@
             <td><a href="{{ route('casilla.edit', $casilla->id)}}"
             class="btn btn-primary">Edit</a></td>
             <td>
-            <form action="{{ route('casilla.destroy', $casilla->id)}}"
+            <form action="{{route('casilla.destroy', $casilla->id)}}"
             method="post">
             @csrf
             @method('DELETE')
@@ -42,4 +42,13 @@
     </tbody>
 </table>
 <div>
+    
+<script type="text/php">
+ if ( isset($pdf) ) {
+ $pdf->page_script('
+ $font = $fontMetrics->get_font("Arial, Helvetica, sans-serif", "normal");
+ $pdf->text(270, 730, "Pagina $PAGE_NUM de $PAGE_COUNT", $font, 10);
+ ');
+ }
+</script>
 @endsection

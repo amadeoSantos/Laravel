@@ -17,13 +17,13 @@
     <thead>
         <tr>
             <td>ID</td>
-            <td>Periodo</td>
-            <td>Fecha</td>
-            <td>Fecha de apertura</td>
-            <td>Hora de apertura</td>
-            <td>Fecha de cierre</td>
-            <td>Hora de cierre</td>
-            <td>Observaciones</td>
+            <td>PERIODO</td>
+            <td>FECHA</td>
+            <td>FECHAAPERTURA</td>
+            <td>HORAAPERTURA</td>
+            <td>FECHACIERRE</td>
+            <td>HORACIERRE</td>
+            <td>OBSERVACIONES</td>
             <td colspan="2">ACTION</td>
         </tr>
     </thead>
@@ -32,21 +32,21 @@
         <tr>
             <td>{{$eleccion->id}}</td>
             <td>{{$eleccion->periodo}}</td>
-            <td>{{$eleccion->fecha->format('Y-m-d')}}</td>
-            <td>{{$eleccion->fechaapertura->format('Y-m-d')}}</td>
+            <td>{{$eleccion->fecha->format('d-m-y')}}</td>
+            <td>{{$eleccion->fechaapertura->format('d-m-y')}}</td>
             <td>{{$eleccion->horaapertura->format('H:i')}}</td>
-            <td>{{$eleccion->fechacierre->format('Y-m-d')}}</td>
+            <td>{{$eleccion->fechacierre->format('d-m-y')}}</td>
             <td>{{$eleccion->horacierre->format('H:i')}}</td>
             <td>{{$eleccion->observaciones}}</td>
             <td><a href="{{ route('eleccion.edit', $eleccion->id)}}"
-            class="btn btn-primary">Editar</a></td>
+            class="btn btn-primary"class="btn btn-primary" >Edit <i class="fa fa-edit" aria-hidden="true"></i></a> </td>
             <td>
             <form action="{{ route('eleccion.destroy', $eleccion->id)}}"
             method="post">
             @csrf
             @method('DELETE')
             <button class="btn btn-danger" type="submit"
-            onclick="return confirm('Esta seguro de borrar {{$eleccion->periodo}}')" >Del</button>
+            onclick="return confirm('Esta seguro de borrar {{$eleccion->ubicacion}}')">Delete <i class="fa fa-trash" aria-hidden="true"></i></button>
             </form>
             </td>
         </tr>
