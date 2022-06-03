@@ -64,7 +64,7 @@ class CandidatoController extends Controller
         ];
         if ($request->hasFile('foto')) $foto->move(public_path('image'), $fotocandidato);
         if ($request->hasFile('perfil')) $perfil->move(public_path('pdf'), $perfilcandidato);
-        print_r($campos);
+        //print_r($campos);
         $candidato = Candidato::create($campos);
         //echo $candidato->nombrecompleto . " se guardo correctamente ... ";
         return redirect("candidato");
